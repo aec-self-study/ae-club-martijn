@@ -1,0 +1,36 @@
+
+version: 2
+
+models:
+  - name: customers
+    description: "shows the first ever 5 customers and their lifetime amount of orders"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: "name of the customer"
+      - name: email
+        description: "email of the customer"
+      - name: first_order_at
+        description: "datetime of the first order by customer"
+      - name: number_of_orders
+        description: "the total amount of orders placed by the customer"
+  - name: orders
+    description: "the orders placed"
+    columns:
+      - name: id
+        description: "the order id"
+      - name: created_at
+        description: "the datetime field the order was logged into the source system"
+  - name: monthly_orders
+    description: "orders by year and month"
+    columns:
+      - name: order_amount
+        description: "the amount of orders that were placed in a specific time period"
+      - name: order_month
+        description: "the month of the order amount"
+      - name: order_year
+        description: "the year of the order amount"
